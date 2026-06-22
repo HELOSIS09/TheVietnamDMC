@@ -1,4 +1,4 @@
-<img width="149" height="96" alt="image" src="https://github.com/user-attachments/assets/a2b2e790-4c74-4c9e-a999-ccf017568a22" />
+<img width="450" height="300" alt="image" align="mid" src="https://github.com/user-attachments/assets/a2b2e790-4c74-4c9e-a999-ccf017568a22" />
 
 🌏 TheVietnamDMC
 Premium Vietnam B2B Travel Website ✈️
