@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="bg_logo.png" type="image/png"> 
 
-<title>TheVietnamDMC</title>
+<title>The Vietnam DMC</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -598,13 +598,179 @@ footer strong { color: var(--gold); }
   70%  { opacity: 0;   transform: scale(1.5); }
   100% { opacity: 0;   transform: scale(1.5); }
 }
+
+#login-screen{
+    position:fixed;
+    inset:0;
+    background:#f5f2ec;
+    z-index:99999;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login-card{
+    background:white;
+    padding:50px;
+    border-radius:24px;
+    text-align:center;
+
+    box-shadow:0 15px 50px rgba(0,0,0,.1);
+}
+
+#googleLoginBtn{
+    background:#A10028;
+    color:white;
+
+    border:none;
+    padding:15px 25px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+}
 </style>
 
 </head>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
 <body>
-    
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script>
+
+const firebaseConfig = {
+ apiKey: "AIzaSyCGiugJ56icdI3sKCHEQZEX-Us_IliLpi8",
+ authDomain: "thevietnamdmc-512d8.firebaseapp.com",
+ projectId: "thevietnamdmc-512d8",
+ storageBucket: "thevietnamdmc-512d8.firebasestorage.app",
+ messagingSenderId: "444394836883",
+ appId: "1:444394836883:web:c3bcafb94697b3faa34e66"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const provider = new firebase.auth.GoogleAuthProvider();
+
+window.onload = function(){
+
+document.getElementById("googleLoginBtn")
+.addEventListener("click", function(){
+
+firebase.auth()
+.signInWithRedirect(provider)
+.then((result)=>{
+
+const user = result.user;
+
+console.log(user.email);
+
+document.getElementById("login-screen")
+.style.display = "none";
+
+})
+.catch((error)=>{
+
+console.error(error);
+alert(error.message);
+
+});
+
+});
+
+};
+document.getElementById("googleLoginBtn")
+.addEventListener("click", function(){
+
+console.log("Button Clicked");
+
+firebase.auth()
+.signInWithPopup(provider)
+
+});
+
+</script>
+<!-- <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script>
+
+
+
+firebase.initializeApp(firebaseConfig);
+
+const provider =
+new firebase.auth.GoogleAuthProvider();
+
+// document
+// .getElementById("googleLoginBtn")
+// .addEventListener("click",()=>{
+
+window.onload = function(){
+
+document
+.getElementById("googleLoginBtn")
+.addEventListener("click", function(){
+
+firebase.auth()
+.signInWithPopup(provider)
+.then((result)=>{
+
+const user = result.user;
+
+alert("Welcome " + user.displayName);
+
+document.getElementById("login-screen").style.display="none";
+
+})
+.catch((error)=>{
+console.error(error);
+alert(error.message);
+});
+
+});
+
+};
+
+firebase.auth()
+.signInWithPopup(provider)
+
+.then((result)=>{
+
+const user=result.user;
+
+console.log(user.email);
+
+document
+.getElementById("login-screen")
+.style.display="none";
+
+});
+
+});
+
+</script> -->
+   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <div id="login-screen">
+
+  <div class="login-card">
+      <img src="bg_logo.png" width="120">
+
+      <h2>Welcome to TheVietnamDMC</h2>
+
+      <p>Sign in to continue</p>
+
+      <button id="googleLoginBtn">
+          Continue with Google
+      </button>
+
+  </div>
+
+</div>
     
 <div class="bg-slider">
 
@@ -873,6 +1039,21 @@ footer strong { color: var(--gold); }
 <footer>
   <p>© 2026 <strong>TheVietnamDMC</strong> · Premium B2B Travel Services · Vietnam's Trusted DMC Partner</p>
 </footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script>
+
+// const firebaseConfig = {
+//   apiKey: "YOUR KEY",
+//   authDomain: "YOUR DOMAIN",
+//   projectId: "YOUR PROJECT ID"
+// };
+
+// firebase.initializeApp(firebaseConfig);
+
+</script>
 </body>
 </html>
 

@@ -601,15 +601,11 @@
 </div>
 
 
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-  // const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxMnShLcz4ZPWz294q1y36oBwoW2aB5-WnWskELK6lYk_bqJgALflsdoVEhsmJ3ijkS/exec";
+  emailjs.init("weJjgVd5FX6iO0nBW");
 
-  
-// MOST IMPORTANT KEY
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwC7dA6jE5kwi-hFettTOwvm5eZfdyXECm0TWeFRkS2YRFMcD7ZigTOczXY_Tr_qdyM/exec";
-
-
-  
   const form    = document.getElementById("quoteForm");
   const btn     = document.getElementById("submitBtn");
   const formSec = document.getElementById("formSection");
@@ -639,28 +635,21 @@ const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwC7dA6jE5kwi-hFettT
     btn.disabled = true;
     btn.textContent = "Sending…";
 
-    const payload = {
-      name:      document.getElementById("name").value,
-      company:   document.getElementById("company").value,
-      email:     document.getElementById("email").value,
-      phone:     document.getElementById("phone").value,
-      pax:       document.getElementById("pax").value || "Not specified",
-      hotel_cat: document.getElementById("category").value || "Not specified",
-      message:   document.getElementById("message").value
-    };
-
-    // Using no-cors mode — email still sends, we just show success after a short delay
-    fetch(SCRIPT_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
+    emailjs.send("service_5se2rcr", "template_l3v6zf6", {
+      from_name:    document.getElementById("name").value,
+      company_name: document.getElementById("company").value,
+      from_email:   document.getElementById("email").value,
+      phone:        document.getElementById("phone").value,
+      pax:          document.getElementById("pax").value || "Not specified",
+      hotel_cat:    document.getElementById("category").value || "Not specified",
+      message:      document.getElementById("message").value
     })
     .then(() => {
       formSec.style.display = "none";
       sucSec.style.display  = "block";
     })
-    .catch(() => {
+    .catch((err) => {
+      console.error(err);
       btn.disabled = false;
       btn.textContent = "Send Quote Request";
       alert("Unable to send. Please try again or contact us directly.");
