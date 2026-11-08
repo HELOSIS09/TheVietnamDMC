@@ -76,7 +76,7 @@ Most CSS is embedded directly inside each HTML document.
 Current repository structure:
 
 ```text
-check/
+TheVietnamDMC/
 │
 ├── .github/
 │   └── workflows/
@@ -1927,10 +1927,10 @@ The most important goal is to **extend the existing product without accidentally
 ## Repository
 
 GitHub:
-https://github.com/HELOSIS09/check
+https://github.com/HELOSIS09/TheVietnamDMC
 
 Live site:
-https://helosis09.github.io/check/
+https://helosis09.github.io/TheVietnamDMC/
 
 ---
 
